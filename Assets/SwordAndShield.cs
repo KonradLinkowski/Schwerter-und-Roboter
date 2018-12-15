@@ -5,12 +5,15 @@ using UnityStandardAssets.CrossPlatformInput;
 
 public class SwordAndShield : MonoBehaviour
 {
+    public float energy;
+    private PlayerHealth xd;
     Animator m_Animator;
     [SerializeField] Collider m_shield;
     [SerializeField] Collider m_sword;
     // Start is called before the first frame update
     void Start()
     {
+        xd = GetComponent<PlayerHealth>();
         m_Animator = GetComponent<Animator>();
     }
 
@@ -19,7 +22,10 @@ public class SwordAndShield : MonoBehaviour
     {
         if (CrossPlatformInputManager.GetButtonDown("Fire1"))
         {
-            m_Animator.SetTrigger("Attack");
+            if (xd.getEnergy() >= energy) {
+                m_Animator.SetTrigger("Attack");
+                xd.TakeEnergy(energy);
+            }
         }
         else if (CrossPlatformInputManager.GetButton("Fire2"))
         {

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fire
   - Loot
+  - Tank
+  - Enemy
   layers:
   - Default
   - TransparentFX

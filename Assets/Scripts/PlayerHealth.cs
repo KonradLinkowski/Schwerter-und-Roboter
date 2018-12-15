@@ -8,12 +8,15 @@ public class PlayerHealth : Health
     public float maxEnergy;
     private float energyPoints;
     
-    public Slider energyBar;
-    public Slider healthBar;
+    private Slider energyBar;
+    private Slider healthBar;
 
     public float energyIncome;
 
-    void Start() {
+    void Awake() {
+        canvas = GameObject.Find("HealthBars").GetComponent<Canvas>();
+        energyBar = GameObject.Find("Energy").GetComponent<Slider>();
+        healthBar = GameObject.Find("Health").GetComponent<Slider>();
         energyPoints = maxEnergy;
         healthPoints = maxHealth;
     }
@@ -22,16 +25,31 @@ public class PlayerHealth : Health
         if (Input.GetKeyDown(KeyCode.I)) {
             TakeEnergy(30);
         }
-        energyBar.value = energyPoints / maxEnergy;
-        healthBar.value = healthPoints / maxHealth;
         if (energyPoints <= maxEnergy) {
             energyPoints += energyIncome * Time.deltaTime;
             if (energyPoints > maxEnergy) energyPoints = maxEnergy;
         }
+        energyBar.value = energyPoints / maxEnergy;
+        if (dead) {
+            text.color = Color.Lerp(
+                text.color,
+                Color.red,
+                Time.deltaTime * 3
+            );
+        }
     }
 
-    void TakeEnergy(float energy) {
+    public float getEnergy() {
+        return energyPoints;
+    }
+
+    public void TakeEnergy(float energy) {
         energyPoints -= energy;
         if (energyPoints < 0) energyPoints = 0;
+        Refresh();
+    }
+
+    public override void Refresh() {
+        healthBar.value = healthPoints / maxHealth;
     }
 }
