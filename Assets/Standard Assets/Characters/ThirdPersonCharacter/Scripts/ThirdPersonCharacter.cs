@@ -28,6 +28,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		Vector3 m_CapsuleCenter;
 		CapsuleCollider m_Capsule;
 		bool m_Crouching;
+        Vector3 m_Move = Vector3.zero;
 
 
 		void Start()
@@ -42,25 +43,42 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_OrigGroundCheckDistance = m_GroundCheckDistance;
 		}
 
+        private void FixedUpdate()
+        {
+            //if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Walk"))
+            //{
+            //    Debug.DrawRay(transform.position,transform.forward*10);
+            //    m_Rigidbody.velocity = m_Move;
+            //}
+            //else if(m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Grounded"))
+            //{
+            //    m_Rigidbody.velocity = Vector3.zero;
+            //}
+            m_Rigidbody.velocity = m_Move;
+        }
 
-		public void Move(Vector3 move, bool crouch, bool jump)
+
+        public void Move(Vector3 move, bool crouch, bool jump)
 		{
 
-			// convert the world relative moveInput vector into a local-relative
-			// turn amount and forward amount required to head in the desired
-			// direction.
-			if (move.magnitude > 1f) move.Normalize();
+            // convert the world relative moveInput vector into a local-relative
+            // turn amount and forward amount required to head in the desired
+            // direction.
+            //print(move);
+			if (move.magnitude > 1f) move.Normalize();m_Move = move;
 			move = transform.InverseTransformDirection(move);
+            
 			CheckGroundStatus();
 			move = Vector3.ProjectOnPlane(move, m_GroundNormal);
 			m_TurnAmount = Mathf.Atan2(move.x, move.z);
 			m_ForwardAmount = move.z;
 
 			ApplyExtraTurnRotation();
-
+            print("grounded "+m_IsGrounded);
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
+                
 				HandleGroundedMovement(crouch, jump);
 			}
 			else
@@ -184,22 +202,22 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 		}
 
 
-		public void OnAnimatorMove()
-		{
-			// we implement this function to override the default root motion.
-			// this allows us to modify the positional speed before it's applied.
-			if (m_IsGrounded && Time.deltaTime > 0)
-			{
-				Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
+        //public void OnAnimatorMove()
+        //{
+        //	// we implement this function to override the default root motion.
+        //	// this allows us to modify the positional speed before it's applied.
+        //	if (m_IsGrounded && Time.deltaTime > 0)
+        //	{
+        //		Vector3 v = (m_Animator.deltaPosition * m_MoveSpeedMultiplier) / Time.deltaTime;
 
-				// we preserve the existing y part of the current velocity.
-				v.y = m_Rigidbody.velocity.y;
-				m_Rigidbody.velocity = v;
-			}
-		}
+        //		// we preserve the existing y part of the current velocity.
+        //		v.y = m_Rigidbody.velocity.y;
+        //		m_Rigidbody.velocity = v;
+        //	}
+        //}
 
 
-		void CheckGroundStatus()
+        void CheckGroundStatus()
 		{
 			RaycastHit hitInfo;
 #if UNITY_EDITOR
