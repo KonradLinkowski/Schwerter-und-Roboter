@@ -16,7 +16,6 @@ public class shoot : MonoBehaviour
     public AudioClip impact;
     public AudioClip hansVoice;
     AudioSource audioSource;
-
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
