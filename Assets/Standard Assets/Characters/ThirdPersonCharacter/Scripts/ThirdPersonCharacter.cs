@@ -54,7 +54,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             //{
             //    m_Rigidbody.velocity = Vector3.zero;
             //}
-            m_Rigidbody.velocity = m_Move;
+            m_Rigidbody.velocity = m_Move*4;
         }
 
 
@@ -74,7 +74,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_ForwardAmount = move.z;
 
 			ApplyExtraTurnRotation();
-            print("grounded "+m_IsGrounded);
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
