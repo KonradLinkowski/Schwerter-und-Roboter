@@ -18,10 +18,12 @@ namespace UnityStandardAssets.Characters.ThirdPerson
         private Vector3 m_CamForward;             // The current forward direction of the camera
         private Vector3 m_Move;
         private bool m_Jump;                      // the world-relative desired move direction, calculated from the camForward and user input.
+        Animator m_Animator;
 
-        
+
         private void Start()
         {
+            m_Animator = GetComponent<Animator>();
             // get the transform of the main camera
             if (Camera.main != null)
             {
@@ -101,6 +103,10 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 #endif
             bool crouch = Input.GetKey(KeyCode.C);
             // pass all parameters to the character control script
+            if (m_Animator.GetCurrentAnimatorStateInfo(0).IsName("Block"))
+            {
+                m_Move = Vector3.zero;
+            }
             m_Character.Move(m_Move, crouch, m_Jump);
             m_Jump = false;
         }

@@ -54,7 +54,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             //{
             //    m_Rigidbody.velocity = Vector3.zero;
             //}
-            m_Rigidbody.velocity = m_Move;
+            m_Rigidbody.velocity = m_Move*4;
         }
 
 
@@ -74,7 +74,6 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			m_ForwardAmount = move.z;
 
 			ApplyExtraTurnRotation();
-            print("grounded "+m_IsGrounded);
 			// control and velocity handling is different when grounded and airborne:
 			if (m_IsGrounded)
 			{
@@ -154,7 +153,7 @@ namespace UnityStandardAssets.Characters.ThirdPerson
 			float jumpLeg = (runCycle < k_Half ? 1 : -1) * m_ForwardAmount;
 			if (m_IsGrounded)
 			{
-				m_Animator.SetFloat("JumpLeg", jumpLeg);
+				// m_Animator.SetFloat("JumpLeg", jumpLeg);
 			}
 
 			// the anim speed multiplier allows the overall speed of walking/running to be tweaked in the inspector,

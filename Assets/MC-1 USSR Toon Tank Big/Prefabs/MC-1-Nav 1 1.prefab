@@ -688,9 +688,10 @@ GameObject:
   - component: {fileID: 1390730568}
   - component: {fileID: 1390730567}
   - component: {fileID: 1390730566}
+  - component: {fileID: 9085284916921304721}
   m_Layer: 0
   m_Name: MC-1-Nav 1 1
-  m_TagString: Tank
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1006,6 +1007,21 @@ MonoBehaviour:
   distance: 7
   impact: {fileID: 8300000, guid: 61b8a72c1ace594419d598d28ab743f9, type: 3}
   hansVoice: {fileID: 8300000, guid: 5e9f3a71ae3010948a5d4b2f8e0f1e92, type: 3}
+--- !u!114 &9085284916921304721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1390730565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4247a9996634f4db151181286869d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  canvas: {fileID: 4627996267523069943, guid: cacf72f5e8e47d044a4301468abe4191, type: 3}
+  bar: {fileID: 8224842099215952837, guid: d210a9f785c5a9b4480ca8469a0fb193, type: 3}
 --- !u!1 &1472996832
 GameObject:
   m_ObjectHideFlags: 0

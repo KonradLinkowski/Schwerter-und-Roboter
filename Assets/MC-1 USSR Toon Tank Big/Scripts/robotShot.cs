@@ -21,7 +21,6 @@ public class robotShot : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        tank = GameObject.FindGameObjectWithTag("Tank").transform;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -32,7 +31,7 @@ public class robotShot : MonoBehaviour
 
         timeBetweenShots = Random.Range(0.0f, timesBetweenShots);
 
-        if (Vector3.Distance(player.position, tank.position) <= distance)
+        if (Vector3.Distance(player.position, transform.position) <= distance)
         {
             if (timestamp >= timeBetweenShots)
             {
