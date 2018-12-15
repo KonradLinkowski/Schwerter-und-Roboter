@@ -8,11 +8,21 @@ public class explode : MonoBehaviour
     Transform player;
     public AudioClip impact;
     AudioSource audioSource;
+    float deathTimer;
 
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         audioSource = GetComponent<AudioSource>();
+    }
+
+    private void Update()
+    {
+        deathTimer += Time.deltaTime;   
+        if (deathTimer > 5)
+        {
+            Destroy(gameObject);
+        }
     }
     void OnCollisionEnter (Collision col) {
       if(col.transform == player){
