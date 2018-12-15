@@ -20,9 +20,14 @@ public class EnemyHealth : Health
     }
 
     public override void Refresh() {
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(transform.position);
+        Vector2 screenPos = Camera.main.WorldToViewportPoint(transform.position);
         healthBar.value = healthPoints / maxHealth;
-        healthBar.GetComponent<RectTransform>().anchoredPosition = screenPos / 4.5f;
+        Vector2 truePos = new Vector2(
+            (float) (0.05 + screenPos.x) * Screen.width + 10000,
+            (float) (0.25 + screenPos.y) * Screen.height + 10000
+        );
+        print(truePos);
+        healthBar.GetComponent<RectTransform>().anchoredPosition = truePos;
     }
 
     void OnDestroy() {

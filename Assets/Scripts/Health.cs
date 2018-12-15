@@ -13,9 +13,14 @@ public class Health : MonoBehaviour
 
     protected Text text;
 
+     public ParticleSystem explosion;
+    public AudioClip impact;
+    AudioSource audioSource;
+
     void Start() {
         Refresh();
         text = canvas.GetComponentInChildren<Text>();
+                audioSource = GetComponent<AudioSource>();
     }
 
     public void TakeDamage(float damage) {
@@ -31,6 +36,8 @@ public class Health : MonoBehaviour
                 Time.timeScale *= 0.2f;
             } else {
                 print("xd");
+                Instantiate(explosion, transform.position, transform.rotation);
+             audioSource.PlayOneShot(impact, 0.7F);
                 Destroy(gameObject);
             }
         }
