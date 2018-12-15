@@ -5,7 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fire
+  - Loot
   - Tank
+  - Enemy
   layers:
   - Default
   - TransparentFX

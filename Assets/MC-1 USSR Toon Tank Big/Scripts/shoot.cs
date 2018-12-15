@@ -19,7 +19,6 @@ public class shoot : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        tank = GameObject.FindGameObjectWithTag("Tank").transform;
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -28,7 +27,7 @@ public class shoot : MonoBehaviour
         timestamp += Time.deltaTime;
         timestampHans += Time.deltaTime;
 
-        if (Vector3.Distance(player.position, tank.position) <= distance)
+        if (Vector3.Distance(player.position, transform.position) <= distance)
         {
             if (timestamp >= timeBetweenShots)
             {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class followPlayer : MonoBehaviour
 {
     Transform player;
-    Transform tank;
     UnityEngine.AI.NavMeshAgent nav;
     public float distance;
 
@@ -13,13 +12,12 @@ public class followPlayer : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        tank = GameObject.FindGameObjectWithTag("Tank").transform;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     void Update()
     {
-        if(Vector3.Distance(player.position, tank.position) <= distance)
+        if(Vector3.Distance(player.position, transform.position) <= distance)
         {
             nav.SetDestination(player.position);
         }

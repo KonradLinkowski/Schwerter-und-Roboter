@@ -881,7 +881,7 @@ GameObject:
   - component: {fileID: 884521401}
   m_Layer: 0
   m_Name: Fantasy_Shield
-  m_TagString: Untagged
+  m_TagString: Tank
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1352,6 +1352,7 @@ GameObject:
   - component: {fileID: 1219443123}
   - component: {fileID: 1219443122}
   - component: {fileID: 1219443124}
+  - component: {fileID: 3373433209346976723}
   m_Layer: 0
   m_Name: ancientsword
   m_TagString: Untagged
@@ -1432,6 +1433,19 @@ CapsuleCollider:
   m_Height: 0.78
   m_Direction: 2
   m_Center: {x: 0, y: -0.00000023841858, z: 0.000000059604645}
+--- !u!114 &3373433209346976723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219443120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 386939026d62be0469c380a357fe46b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!1 &1266585722
 GameObject:
   m_ObjectHideFlags: 0
@@ -1945,6 +1959,7 @@ GameObject:
   - component: {fileID: 1686185227}
   - component: {fileID: 1686185226}
   - component: {fileID: 1686185231}
+  - component: {fileID: 1251362624164703627}
   m_Layer: 0
   m_Name: ThirdPersonController
   m_TagString: Player
@@ -2064,8 +2079,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e805176cd2f0d847a944776234440bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  energy: 30
   m_shield: {fileID: 884521401}
   m_sword: {fileID: 1219443124}
+--- !u!114 &1251362624164703627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686185225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3100d38873376b44884f907d298b4494, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 1000
+  maxEnergy: 100
+  energyIncome: 20
 --- !u!1 &1697841628
 GameObject:
   m_ObjectHideFlags: 0

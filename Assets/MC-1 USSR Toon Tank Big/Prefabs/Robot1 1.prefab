@@ -356,9 +356,10 @@ GameObject:
   - component: {fileID: 462674838}
   - component: {fileID: 462674840}
   - component: {fileID: 462674839}
+  - component: {fileID: 3188759141961677214}
   m_Layer: 0
   m_Name: Robot1 1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -674,6 +675,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distance: 20
+--- !u!114 &3188759141961677214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462674833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4247a9996634f4db151181286869d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  bar: {fileID: 8224842099215952837, guid: d210a9f785c5a9b4480ca8469a0fb193, type: 3}
 --- !u!1 &484104241
 GameObject:
   m_ObjectHideFlags: 0
