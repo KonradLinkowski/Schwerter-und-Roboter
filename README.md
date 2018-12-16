@@ -15,9 +15,9 @@ Have fun :)
 
 ### Screenshots
 
-![Screen1][Screen1]
-![Screen3][Screen3]
-![Screen6][Screen6]
+![Tanks][Screen1]
+![Robots][Screen2]
+![Death][Screen6]
 
 ### Controls
 
@@ -74,9 +74,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 * [**Maciej Stróżniak**](https://www.instagram.com/maciejstrozniak/ "Maciej's Instagram") - background music
 
-[Screen1]: Screenshots/Screen1
-[Screen2]: Screenshots/Screen2
-[Screen3]: Screenshots/Screen3
-[Screen4]: Screenshots/Screen4
-[Screen5]: Screenshots/Screen5
-[Screen6]: Screenshots/Screen6
+[Screen1]: Screenshots/Screen1.png
+[Screen2]: Screenshots/Screen2.png
+[Screen3]: Screenshots/Screen3.png
+[Screen4]: Screenshots/Screen4.png
+[Screen5]: Screenshots/Screen5.png
+[Screen6]: Screenshots/Screen6.png
