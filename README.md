@@ -61,10 +61,10 @@ Open the project with Unity and click play.
 
 ## Authors
 
-* **Mikołaj Celka**
-* **Damian Banasiak**
-* **Konrad Baranek**
-* **Konrad Linkowski**
+* [**Mikołaj Celka**](https://github.com/Celkowy)
+* [**Damian Banasiak**](https://github.com/dbanasiak)
+* [**Konrad Baranek**](https://github.com/konradbaranek)
+* [**Konrad Linkowski**](https://github.com/KonradLinkowski)
 
 ## License
 
